@@ -1,0 +1,125 @@
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hand-drawn Table → HTML</title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    padding: 24px;
+    background:#fafafa;
+  }
+
+  .card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  thead th {
+    border: 2px solid #2b6cb0; /* header border color */
+    padding: 10px 8px;
+    text-align: center;
+    background: #e9f2ff;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+
+  tbody td {
+    border: 1px solid #bbb;
+    padding: 10px 8px;
+    text-align: center;
+    vertical-align: middle;
+    min-height: 46px;
+  }
+
+  /* make the first column (Name) a bit wider */
+  col.name { width: 28%; }
+  col.next { width: 24%; }
+  col.att { width: 12%; }
+  col.age { width: 12%; }
+  col.city { width: 24%; }
+ col.image { width: 24%; }
+
+  /* small visual dots like your sketch for empty cells */
+  .dots::after {
+    content: "—  —  —";
+    color: #666;
+    letter-spacing: 6px;
+    display: inline-block;
+  }
+
+  /* responsive tweak */
+  @media (max-width:600px) {
+    thead th, tbody td { padding: 8px 6px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h3 style="margin-top:0">Table</h3>
+
+    <table>
+      <colgroup>
+        <col class="name">
+        <col class="image">
+        <col class="att">
+        <col class="age">
+        <col class="city">
+       
+      </colgroup>
+
+      <!-- top header row: group "Personal Details" spans Age & City -->
+      <thead>
+        <tr>
+          <th rowspan="2">Name</th>
+          <th rowspan="2">image</th>
+          <th rowspan="2">Status</th>
+          <th colspan="2">Personal Details</th>
+           
+        <tr>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>sana</td>
+          <td rowspan="1"> <image src ="https://i.redd.it/q4jq5d2rojod1.png" style="width:100px;height;100px;"></image></td>
+          <td>✓</td>
+          <td>28</td>
+          <td>Mumbai</td>
+        </tr>
+
+        <tr>
+          <td>saba</td>
+          <td rowspan="1" ><image src="https://www.pngfind.com/pngs/m/162-1628386_doraemon-shizuka-minamoto-vector-by-jewel-chanxoxo-d8vshqb.png"style="width:100px;height;100px;"></image></td>
+          <td>—</td>
+          <td>24</td>
+          <td>Delhi</td>
+        </tr>
+
+        <tr>
+          <td>Ahad</td>
+          <td rowspan="1" ><image src="https://img.favpng.com/8/24/4/shizuka-minamoto-nobita-nobi-doraemon-animation-png-favpng-snZe3gL9yLpE2pzGcLMyX8v5b.jpg"style="width:100px;height;100px;"></image></td>
+          <td>✓</td>
+          <td>18</td>
+          <td>Bengaluru</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
